@@ -6,7 +6,22 @@ import React, { useState, useEffect } from "react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#0f172a] via-[#312e81] to-[#a21caf] flex flex-col items-center justify-center">
+    <main className="min-h-screen bg-gradient-to-br from-[#0f172a] via-[#312e81] to-[#a21caf] flex flex-col items-center justify-center relative">
+      {/* Botones en la esquina superior derecha */}
+      <div className="absolute top-6 right-8 flex gap-4 z-20">
+        <Link
+          href="/auth/register"
+          className="rounded-full px-6 py-2 bg-fuchsia-600 hover:bg-fuchsia-700 text-white shadow-lg transition-colors btn-primary"
+        >
+          Regístrate
+        </Link>
+        <Link
+          href="/auth/login"
+          className="rounded-full px-6 py-2 bg-blue-700 hover:bg-blue-800 text-white shadow-lg transition-colors btn-secondary"
+        >
+          Iniciar sesión
+        </Link>
+      </div>
       <section className="w-full max-w-6xl mx-auto py-16 px-4 flex flex-col items-center">
         <motion.h1
           initial={{ opacity: 0, y: -40 }}
@@ -37,20 +52,6 @@ export default function Home() {
             <Carousel />
           </div>
         </motion.div>
-        <div className="flex gap-4 mt-4">
-          <Link
-            href="/auth/register"
-            className="btn-primary bg-fuchsia-600 hover:bg-fuchsia-700 text-white shadow-lg"
-          >
-            Regístrate
-          </Link>
-          <Link
-            href="/auth/login"
-            className="btn-secondary bg-blue-700 hover:bg-blue-800 text-white shadow-lg"
-          >
-            Iniciar sesión
-          </Link>
-        </div>
       </section>
       {/* Sección para gamers */}
       <section className="w-full max-w-6xl mx-auto py-12 px-4 flex flex-col md:flex-row items-center gap-10 mt-10">
