@@ -47,6 +47,16 @@ export default function Home() {
           transition={{ delay: 0.6, duration: 0.7 }}
           className="w-full max-w-3xl"
         >
+          {/* Botón del catálogo */}
+          <div className="text-center mb-8">
+            <Link
+              href="/catalog"
+              className="inline-block bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-4 px-8 rounded-xl shadow-2xl transition-all duration-300 transform hover:scale-105"
+            >
+              🛒 Ver Catálogo de Productos
+            </Link>
+          </div>
+          
           {/* Carrusel de imágenes */}
           <div className="relative w-full h-64 md:h-96 overflow-hidden rounded-2xl shadow-2xl mb-8 border-4 border-fuchsia-700/40">
             <Carousel />

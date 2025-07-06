@@ -29,12 +29,27 @@ export default function Register() {
     setError("");
     setSuccess(false);
     try {
+      console.log("Enviando datos:", { ...data, role: "CUSTOMER" });
+      
       const res = await fetch("https://domain-users-alb-1257413507.us-east-1.elb.amazonaws.com/api/users-create/register", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
         body: JSON.stringify({ ...data, role: "CUSTOMER" }),
       });
-      if (!res.ok) throw new Error("Error en el registro");
+      
+      console.log("Respuesta status:", res.status);
+      
+      if (!res.ok) {
+        const errorText = await res.text();
+        console.error("Error response:", errorText);
+        throw new Error(`Error ${res.status}: ${errorText || "Error en el registro"}`);
+      }
+      
+      const responseData = await res.json();
+      console.log("Registro exitoso:", responseData);
       setSuccess(true);
       
       // Redirigir al login después de 2 segundos
@@ -42,6 +57,7 @@ export default function Register() {
         router.push("/auth/login");
       }, 2000);
     } catch (e) {
+      console.error("Error completo:", e);
       setError(e instanceof Error ? e.message : "Error desconocido");
     }
   };
