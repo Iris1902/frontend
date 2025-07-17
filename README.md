@@ -1,3 +1,35 @@
+# TechStore - Tienda de Laptops
+
+Este proyecto es una tienda online de productos tecnológicos, especializada en laptops. Incluye:
+- Landing page moderna con carrusel y animaciones.
+- Registro y login de usuarios (solo rol CUSTOMER).
+- Visualización de productos tras iniciar sesión.
+
+## Configuración
+
+1. Clona el repositorio y ejecuta `npm install`.
+2. Configura la URL de la API en `.env.local`:
+   ```
+   NEXT_PUBLIC_API_URL=http://localhost:8080/api
+   ```
+3. Inicia el proyecto:
+   ```
+   npm run dev
+   ```
+
+## Librerías principales
+- Next.js 14 (App Router)
+- Tailwind CSS
+- Framer Motion
+- HeadlessUI
+- Heroicons
+- React Hook Form + Zod
+
+## Notas
+- El registro y login usan endpoints externos, configurables por variable de entorno.
+- Solo se permite el registro de usuarios con rol CUSTOMER.
+- Los productos se mostrarán tras iniciar sesión.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
